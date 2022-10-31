@@ -18,6 +18,7 @@ Complete by Tuesday 1st November:
   - Index.html has all the forms on the page
   - add README.md - with the description
   - explanation what this APP does
+
 Complete by Tuesday 8th November:
   - link CSS style file to the index.html
   - choose any CSS framework
@@ -25,6 +26,7 @@ Complete by Tuesday 8th November:
   - add CSS styling to your WebApp
   - add give meaningful class names
   - debug
+
 Complete by Tuesday 15th November:
   - create link JS file to the index.html
   - use JS to make WebApp perform planned tasks
