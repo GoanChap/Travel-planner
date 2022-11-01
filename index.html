@@ -9,13 +9,32 @@
 </head>
 <body>
     <div class="main">
-        <form>
+        <form name="planner" onsubmit="evaluateForm()">
             <label for="days">No. of days: </label>
             <input type="text" name="days">
             <label for="budget">Budget: </label>
             <input type="text" name="budget">
             <input type="submit" value="Submit">
         </form>
+        <div>
+            <img id="myImage" src="images/Where to go.jpg" width="500" height="500">
+            <button onclick="changeImage()">Find a Holiday!</button>
+        </div>
     </div>
+    
 </body>
+
+<script>
+function changeImage(){
+    let img = document.getElementById('myImage');
+    img.src = 'images/1_Maldives-Villa-piles-on-water.jpg';
+    img.height = '333';
+}
+
+function evaluateForm(){
+    alert("The form is valid!");
+}
+
+</script>
+
 </html>
