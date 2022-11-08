@@ -29,6 +29,7 @@ Complete by Tuesday 8th November:
   - debug
 
 Complete by Tuesday 15th November:
+  - Make it Responsive
   - create link JS file to the index.html
   - use JS to make WebApp perform planned tasks
   - follow the camel case naming convention for Variables
