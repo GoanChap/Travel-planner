@@ -9,5 +9,26 @@
     height: 100vh;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(to right, #9c27b0, #8ecdff);
+    background: linear-gradient(to right, #9c27b0, #8ecdff);    
+}
+
+form{
+    margin: 16px;
+    font-weight: bolder;
+}
+
+footer{
+    background: linear-gradient(to left, rgb(180, 253, 61), rgb(49, 170, 218));
+    width: fit-content;
+    margin: auto;    
+}
+
+footer a:link{
+    text-decoration: none;
+}
+
+header{    
+    width:fit-content;
+    margin: auto;
+    background: linear-gradient(to left, rgb(180, 253, 61), rgb(49, 170, 218));
 }
