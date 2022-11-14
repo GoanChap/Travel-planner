@@ -4,40 +4,131 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!----    <a target="_blank" href="https://icons8.com/icon/6iCL6ToWEffH/airplane-landing">Airplane Landing</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> -->
+<!--<a target="_blank" href="https://icons8.com/icon/6iCL6ToWEffH/airplane-landing">Airplane Landing</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> -->
     <title>Holiday Planner</title>
     <link rel="icon" type="image/x-icon" href="images/icons8-airplane-take-off-100.png">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>This is the Header</header>
-    <div class="main">
-        <form name="planner" onsubmit="evaluateForm()">
+    <header id="header"><h1>This is the Header</h1></header>
+    <main class="content-wrap">
+        <form name="planner" >
             <label for="days">No. of days: </label>
-            <input type="text" name="days">
+            <input id="days" type="text" name="days" value="5">
             <label for="budget">Budget: </label>
-            <input type="text" name="budget">
-            <input type="submit" value="Submit">
+            <input id="budget" type="text" name="budget" value="5000">
+            <input type="button" value="Submit" onclick="findHoliday()">
         </form>
         <div>
-            <img id="myImage" src="images/Where to go.jpg" width="500" height="500">
-            <button onclick="changeImage()">Find a Holiday!</button>
+            <img id="myImage" src="images/Where to go.jpg" width="500" height="500" title="Where will you go?">
+            <p id="descriptiom"></p>
+        <div>
+            <button onclick="moreOptions()">More options...</button>
         </div>
-        <footer>&copy; <a href="https://github.com/GoanChap" title="Visit GoanChap" target="_blank">GoanChap</a></footer>
-    </div>
+        <div class="container"></div>
+        </div>
+        <footer>
+            <div class="content-wrap">
+              <h2>Let's Keep in Touch!</h2>
+    
+              <!-- Social media and contact links. Add or remove any networks. -->
+              <ul class="contact-list">
+                <li><a href="mailto:coelhodenis90@gmail.com" title="Send an Email">Email</a></li>
+                <li><a href="https://goanchap.github.io" title="Veiw my Portfolio" target="_blank">My Portfolio</a></li>
+                <li><a href="https://github.com/GoanChap" title="Visit GoanChap" target="_blank">Git Hub</a></li>            
+                <li><a href="https://www.linkedin.com/in/deniscoelho" title="Visit GoanChap" target="_blank">LinkedIn</a></li>
+              </ul>
+            </div>
+          </footer>
+    </main>
     
 </body>
 
 <script>
-function changeImage(){
-    let img = document.getElementById('myImage');
-    img.src = 'images/1_Maldives-Villa-piles-on-water.jpg';
-    img.height = '333';
+
+function getMagicNo(){
+    let days = document.getElementById('days').value;
+    let cost = document.getElementById('budget').value;
+    return  cost/days;
+
 }
 
-function evaluateForm(){
-    alert("The form is valid!");
+function getArrayId() {
+    
+    let magic_number = getMagicNo();    
+    let id;
+    if (magic_number<500)
+    window.alert("PLease add more cost or reduce number of days");
+    else if (magic_number < 750)
+    id = 2;
+    else if (magic_number < 1250)
+    id = 1;
+    else
+    id = 0;
+    return id;
 }
+
+function moreOptions(){
+        
+    let id = getArrayId();
+    // window.alert(id);
+    let available_locations = locations.filter(locations => locations.magic_no >= id);
+let htmlCode= '';
+available_locations.forEach(function(singleLocationObjects){
+    htmlCode =
+    htmlCode +
+    `
+    <article>
+      <div>
+      <img src="${singleLocationObjects.photo_link}" alt="${
+      singleLocationObjects.region
+    }">
+      </div>
+      <div>
+      <h3>Location: ${singleLocationObjects.region}</h3>
+      <p>Desc: ${singleLocationObjects.desc}</p>
+      </div>
+    </article>
+  `;
+});
+
+const locationCards = document.querySelector(".container");
+locationCards.innerHTML = htmlCode;
+   
+}
+
+function findHoliday(){
+    let id = getArrayId();
+    let img = document.getElementById('myImage');
+    img.src = locations[id].photo_link;
+    img.height = '333';
+    img.title = locations[id].region;
+    let desc = locations[id].desc;
+    document.getElementById("descriptiom").innerHTML = desc;
+    let region = locations[id].region;
+    document.getElementById("header").innerText = region;
+}
+
+let locations = [
+  {
+    "region": "Europe",
+    "photo_link": "images/1_Maldives-Villa-piles-on-water.jpg",
+    "desc": "This is Europe",
+    "magic_no": 0
+  },
+  {
+    "region": "Asia",
+    "photo_link": "images/1_Maldives-Villa-piles-on-water.jpg",
+    "desc": "This is Asia",
+    "magic_no": 1
+  },
+  {
+    "region": "Pacific Islands",
+    "photo_link": "images/1_Maldives-Villa-piles-on-water.jpg",
+    "desc": "These are The Pacific Islands",
+    "magic_no": 2
+  },
+]
 
 </script>
 
