@@ -21,6 +21,7 @@ form{
     margin: 16px;
     font-weight: bolder;
     box-sizing: border-box;
+    position: relative;    
 }
 
 h1{
@@ -36,6 +37,26 @@ h1, h2{
     font-family: 'Caveat', cursive;
     font-weight: 400;
     margin: 0;
+}
+
+h3{
+  color: #ce0058;
+  margin-bottom: 0;
+  font-size: 1.2rem;
+  line-height: 1.33;
+}
+
+@media screen and (min-width: 1024px){
+h3 {
+    font-size: 2.2rem;
+    line-height: 1.25;
+  }
+}
+
+p{
+    margin: 2;
+    display: block;
+    padding-left: 2px;
 }
 
 footer{
@@ -70,7 +91,7 @@ a:hover{
 
 article {
   position: relative;
-  background-color: #fff;
+  background: linear-gradient(to bottom, rgb(121, 121, 120), rgb(237, 241, 238)); 
   margin-bottom: 0;
   padding: 0;
   min-height: 1px;
@@ -85,6 +106,10 @@ img{
     max-width: 100%;
     height: auto;
 } 
+
+#description{
+  background: linear-gradient(to bottom, rgb(247, 247, 2), rgb(237, 241, 238)); 
+}
 
 /* Responsive
 ------------------------------------*/

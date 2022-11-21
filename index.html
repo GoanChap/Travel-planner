@@ -14,13 +14,13 @@
     <main class="content-wrap">
         <form name="planner">
             <label for="days">No. of days: </label>
-            <input id="days" type="text" name="days" value="5">
+            <input id="days" type="text" name="days" value="5" size="2">
             <label for="budget">Budget: </label>
-            <input id="budget" type="text" name="budget" value="5000">
+            <input id="budget" type="text" name="budget" value="5000" size="2">
             <input type="button" value="Submit" onclick="findHoliday()">
         </form>
         <div id="output">
-            <img id="myImage" src="images/Where to go.jpg" width="500" height="500" title="Where will you go?">
+            <img id="myImage" src="images/jeshoots-com-mSESwdMZr-A-unsplash.jpg" width="500" height="500" title="Where will you go?">
             <p id="description"></p>
         <div>
             <button onclick="moreOptions()">More options...</button>
@@ -88,7 +88,9 @@ function moreOptions(){
       </div>
       <div>
       <h3>Location: ${singleLocationObjects.region}</h3>
-      <p>Desc: ${singleLocationObjects.desc}</p>
+      <p><b>Desc:</b> ${singleLocationObjects.desc}</p>
+      <p><b>Flights:</b> ${singleLocationObjects.flights}</p>
+      <p><b>Accomodation:</b> ${singleLocationObjects.accomodation}</p>
       </div>
     </article>
   `;
@@ -102,6 +104,9 @@ locationCards.innerHTML = htmlCode;
 function removeDiv(){
     var div = document.getElementById('output');
     div.remove();
+    var header = document.getElementById('header');
+    header.remove();
+    
 }
 // make id global
 function findHoliday(){
@@ -122,24 +127,32 @@ let locations = [
     "photo_link": "images/denys-nevozhai-UzagqG756OU-unsplash.jpg",
     "desc": "A continent of culture, custom and craftsmanship across many fields, the reasons why so many people choose to visit Europe are countless. Despite being deeply rooted in the modern age, one of the most fascinating things about Europe is how each of its countries exhibits an assortment of ancient traditions while keeping its own firm grip on the 21st century.",
     "flights": "$2500 - $4500",
-    "Accomodation": "$100 - $1000",
+    "accomodation": "$100 - $1000",
     "magic_no": 0
+  },
+  {
+    "region": "North America",
+    "photo_link": "images/sophia-simoes-caxORE4n3ic-unsplash.jpg",
+    "desc": "North America is home to it all. Step beyond the typical tourist route and carve your own trail as you set out on a unique adventure. From isolated Alaskan towns to the geological wonders of Utah’s national parks and cities thriving with musical culture, explore those places that may be off your North American radar.<br>For the holiday seeker who likes to vacation in nothing but nature, there are the dramatic terrains of a Canadian landscape. For those who want to simply relax, the beaches of Hawai`i are waiting for you. Or seek out the hustle and bustle of the big cities such as Los Angeles, San Francisco, Chicago, Las Vegas or New York City.<br>The diversity is profound here, every state feels like a different nation, with a whole new scope of people watching to go with it.",
+    "flights": "$1800 - $3000",
+    "accomodation": "$90 - $900",
+    "magic_no": 1
   },
   {
     "region": "Asia",
     "photo_link": "images/julian-yu-_WuPjE-MPHo-unsplash.jpg",
-    "desc": "This is Asia",
-    "flights": "$1200 - $3000",
-    "Accomodation": "$25 - $500",
-    "magic_no": 1
+    "desc": "A continent of fascinating diversity, one corner might present historic tales detailing heroes and villains, while the other will dazzle with futuristic skylines and bright urban lights. You’ll get swept away in cultures that have been forged over many centuries, and stories that are depicted in time-worn towers, pagodas and even jungle-clad temples. From mesmerising monuments to time-honoured traditions, the only consistent on this compelling continent is tantalising cuisine (we’ll have you chopstick trained in a flash) and hospitable locals – complete with wide smiles and beaming faces.",
+    "flights": "$1200 - $2500",
+    "accomodation": "$25 - $500",
+    "magic_no": 2
   },
   {
     "region": "Pacific Islands",
     "photo_link": "images/1_Maldives-Villa-piles-on-water.jpg",
-    "desc": "These are The Pacific Islands",
+    "desc": "You're a very lucky Kiwi. Why? Because as a New Zealander you live on the doorstep to some of the most beautiful tropical Pacific Islands in the world. Destinations such as Fiji and Rarotonga, Samoa, Niue and of course, that little dime called Tahiti, amongst many others. \n<br> These are places that some people can only dream about. To many they are just a 'one day' destination - a desktop background on an office computer - but to us they're a three hour flight away, give or take. That's right, Utopia at our fingertips: world-class snorkelling, sugary white beaches and a dazzling ocean that merges from jade to turquoise. Languid days spent idly in a rocking hammock, and nights with exotic cocktails and purple sunsets. For Kiwis, the Pacific Islands need not be a pipe dream, they are all well within our grasp. Better still, paradise need not cost you a fortune.",
     "flights": "$700 - $1500",
-    "Accomodation": "$10 - $300",
-    "magic_no": 2
+    "accomodation": "$10 - $300",
+    "magic_no": 3
   },
 ]
 
