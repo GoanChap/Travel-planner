@@ -10,23 +10,24 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header id="header"><h1>This is the Header</h1></header>
+    <header><h1 id="header">Find my next International trip</h1></header>
     <main class="content-wrap">
-        <form name="planner" >
+        <form name="planner">
             <label for="days">No. of days: </label>
             <input id="days" type="text" name="days" value="5">
             <label for="budget">Budget: </label>
             <input id="budget" type="text" name="budget" value="5000">
             <input type="button" value="Submit" onclick="findHoliday()">
         </form>
-        <div>
+        <div id="output">
             <img id="myImage" src="images/Where to go.jpg" width="500" height="500" title="Where will you go?">
-            <p id="descriptiom"></p>
+            <p id="description"></p>
         <div>
             <button onclick="moreOptions()">More options...</button>
         </div>
-        <div class="container"></div>
+        
         </div>
+        <div class="container"></div>
         <footer>
             <div class="content-wrap">
               <h2>Let's Keep in Touch!</h2>
@@ -59,6 +60,7 @@ function getArrayId() {
     let id;
     if (magic_number<500)
     window.alert("PLease add more cost or reduce number of days");
+    //Change to image
     else if (magic_number < 750)
     id = 2;
     else if (magic_number < 1250)
@@ -73,16 +75,16 @@ function moreOptions(){
     let id = getArrayId();
     // window.alert(id);
     let available_locations = locations.filter(locations => locations.magic_no >= id);
-let htmlCode= '';
-available_locations.forEach(function(singleLocationObjects){
+    let htmlCode= '';
+    available_locations.forEach(function(singleLocationObjects){
     htmlCode =
     htmlCode +
     `
     <article>
       <div>
-      <img src="${singleLocationObjects.photo_link}" alt="${
+      <img src="${singleLocationObjects.photo_link}" title="${
       singleLocationObjects.region
-    }">
+    }" height="433">
       </div>
       <div>
       <h3>Location: ${singleLocationObjects.region}</h3>
@@ -91,12 +93,17 @@ available_locations.forEach(function(singleLocationObjects){
     </article>
   `;
 });
-
+removeDiv();
 const locationCards = document.querySelector(".container");
 locationCards.innerHTML = htmlCode;
-   
+ 
 }
 
+function removeDiv(){
+    var div = document.getElementById('output');
+    div.remove();
+}
+// make id global
 function findHoliday(){
     let id = getArrayId();
     let img = document.getElementById('myImage');
@@ -104,7 +111,7 @@ function findHoliday(){
     img.height = '333';
     img.title = locations[id].region;
     let desc = locations[id].desc;
-    document.getElementById("descriptiom").innerHTML = desc;
+    document.getElementById("description").innerHTML = desc;
     let region = locations[id].region;
     document.getElementById("header").innerText = region;
 }
@@ -112,20 +119,26 @@ function findHoliday(){
 let locations = [
   {
     "region": "Europe",
-    "photo_link": "images/1_Maldives-Villa-piles-on-water.jpg",
-    "desc": "This is Europe",
+    "photo_link": "images/denys-nevozhai-UzagqG756OU-unsplash.jpg",
+    "desc": "A continent of culture, custom and craftsmanship across many fields, the reasons why so many people choose to visit Europe are countless. Despite being deeply rooted in the modern age, one of the most fascinating things about Europe is how each of its countries exhibits an assortment of ancient traditions while keeping its own firm grip on the 21st century.",
+    "flights": "$2500 - $4500",
+    "Accomodation": "$100 - $1000",
     "magic_no": 0
   },
   {
     "region": "Asia",
-    "photo_link": "images/1_Maldives-Villa-piles-on-water.jpg",
+    "photo_link": "images/julian-yu-_WuPjE-MPHo-unsplash.jpg",
     "desc": "This is Asia",
+    "flights": "$1200 - $3000",
+    "Accomodation": "$25 - $500",
     "magic_no": 1
   },
   {
     "region": "Pacific Islands",
     "photo_link": "images/1_Maldives-Villa-piles-on-water.jpg",
     "desc": "These are The Pacific Islands",
+    "flights": "$700 - $1500",
+    "Accomodation": "$10 - $300",
     "magic_no": 2
   },
 ]
