@@ -2,7 +2,8 @@
 
 This Repository will be used to create a web application using HTML, CSS & JS.
 Version Control will be done using Git on Github.
-Using Visual Studio Code as the code editor
+Using Visual Studio Code as the code editor.
+
 Website URL: http://travelplanner.42web.io/?i=1
 
 Functionality:
