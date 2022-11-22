@@ -3,6 +3,7 @@
 This Repository will be used to create a web application using HTML, CSS & JS.
 Version Control will be done using Git on Github.
 Using Visual Studio Code as the code editor
+Website URL: http://travelplanner.42web.io/?i=1
 
 Functionality:
 This app will take two Integers as number of days and Budget and return a Country(String) you can go Holiday to. 
