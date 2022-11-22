@@ -59,8 +59,7 @@ function getArrayId() {
     let magic_number = getMagicNo();    
     let id;
     if (magic_number<500)
-    window.alert("PLease add more cost or reduce number of days");
-    //Change to image
+    id = 4;
     else if (magic_number < 750)
     id = 3;
     else if (magic_number < 1250)
@@ -75,7 +74,6 @@ function getArrayId() {
 function moreOptions(){
         
     let id = getArrayId();
-    // window.alert(id);
     let available_locations = locations.filter(locations => locations.magic_no >= id);
     let htmlCode= '';
     available_locations.forEach(function(singleLocationObjects){
@@ -155,6 +153,14 @@ let locations = [
     "flights": "$700 - $1500",
     "accomodation": "$10 - $300",
     "magic_no": 3
+  },
+  {
+    "region": "New Zealand",
+    "photo_link": "images/sophie-turner-LZVmvKlchM0-unsplash.jpg",
+    "desc": "Explore the 8th wonder of the world- Aotearoa!!!",
+    "flights": "$0 - $800",
+    "accomodation": "$0 - $150",
+    "magic_no": 4
   },
 ]
 
